@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:porto_web/components/components_lib.dart';
+import 'package:porto_web/global_vars/global_vars.dart';
 import 'package:porto_web/preferences/dark_theme_prefs.dart';
+import 'package:porto_web/providers/navigation_state_provider.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/my_themes.dart';
 import 'package:porto_web/views/view_lib.dart';
@@ -33,7 +36,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => darkThemeProvider)],
+      providers: [
+        ChangeNotifierProvider(create: (_) => darkThemeProvider),
+        ChangeNotifierProvider(create: (_) => NavigationStateProvider())
+      ],
       child: const MainApp(),
     );
   }
@@ -47,6 +53,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: Styles.themeData(
             context.watch<DarkThemeProvider>().darkTheme, context),
@@ -62,12 +69,11 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-
-  // Future<bool> isDarkMode() async{
-    
-  // }
   @override
   Widget build(BuildContext context) {
+    bool isSmallScreen =
+        MediaQuery.of(context).size.width < ScreenSizeLib.smallWidth;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Anam'),
@@ -86,8 +92,10 @@ class _MainViewState extends State<MainView> {
         ],
       ),
       body: const IntroView(),
+      bottomNavigationBar: isSmallScreen
+          ? const NavBarPhone()
+          : null,
     );
   }
 }
-
 

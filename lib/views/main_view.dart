@@ -7,11 +7,19 @@ class IntroView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: const [
-        Expanded(flex: 1, child: SideNav()),
-        Expanded(flex: 4, child: IntroTitle()),
-        Expanded(flex: 4, child: IntroImage()),
+      children: [
+        const NavBarLarge(),
+        Expanded(
+          flex: 8,
+          child: Row(
+            children: const [
+              Expanded(child: IntroTitle()),
+              Expanded(child: IntroImage()),
+            ],
+          ),
+        ),
       ],
     );
   }
 }
+

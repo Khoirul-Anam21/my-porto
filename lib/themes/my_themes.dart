@@ -5,11 +5,41 @@ import 'light_colors.dart';
 
 class Styles {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
+    TextStyle unselectedNavRailLabelStyle = isDarkTheme
+        ? const TextStyle(
+            color: Colors.white60,
+          )
+        : const TextStyle(
+            color: Colors.black54,
+          );
+    TextStyle selectedNavRailLabelStyle = isDarkTheme
+        ? const TextStyle(
+            color: Colors.white,
+          )
+        : const TextStyle(
+            color: Colors.black,
+          );
     return ThemeData(
       primarySwatch: isDarkTheme
           ? createMaterialColor(AppDarkTheme.kMainColorOne)
           : createMaterialColor(AppLightTheme.kMainColorOne),
       primaryColor: isDarkTheme ? Colors.black : Colors.white,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        unselectedItemColor: isDarkTheme ? Colors.white : Colors.black,
+        unselectedIconTheme:
+            IconThemeData(color: isDarkTheme ? Colors.white60 : Colors.black54),
+        selectedIconTheme:
+            IconThemeData(color: isDarkTheme ? Colors.white : Colors.black),
+        selectedItemColor: isDarkTheme ? Colors.white : Colors.black,
+      ),
+      navigationRailTheme: NavigationRailThemeData(
+        unselectedLabelTextStyle: unselectedNavRailLabelStyle,
+        unselectedIconTheme:
+            IconThemeData(color: isDarkTheme ? Colors.white60 : Colors.black54),
+        selectedIconTheme:
+            IconThemeData(color: isDarkTheme ? Colors.white : Colors.black),
+        selectedLabelTextStyle: selectedNavRailLabelStyle,
+      ),
       backgroundColor: isDarkTheme ? Colors.black : Color(0xffF1F5FB),
       indicatorColor: isDarkTheme ? Color(0xff0E1D36) : Color(0xffCBDCF8),
       hintColor: isDarkTheme ? Color(0xff280C0B) : Color(0xffEECED3),

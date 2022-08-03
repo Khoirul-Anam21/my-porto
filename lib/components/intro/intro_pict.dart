@@ -5,6 +5,6 @@ class IntroImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const FlutterLogo(size: 300, style: FlutterLogoStyle.stacked,);
+    return const FlutterLogo(size: 90, style: FlutterLogoStyle.stacked,);
   }
 }

@@ -1,21 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
+import 'package:porto_web/providers/navigation_state_provider.dart';
+import 'package:porto_web/providers/theme_provider.dart';
+import 'package:porto_web/themes/light_colors.dart';
+import 'package:provider/provider.dart';
 
-class NavBarLarge extends StatelessWidget {
+class NavBarLarge extends StatefulWidget {
   const NavBarLarge({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<NavBarLarge> createState() => _NavBarLargeState();
+}
+
+class _NavBarLargeState extends State<NavBarLarge> {
+  @override
   Widget build(BuildContext context) {
+    bool isDark = context.watch<DarkThemeProvider>().darkTheme;
     bool isSmallScreen =
         MediaQuery.of(context).size.width < ScreenSizeLib.smallWidth;
-    return isSmallScreen ? const SizedBox.shrink() : NavigationRail(
-        destinations: navigationBars
-            .map((nav) => NavigationRailDestination(
-                icon: Icon(nav['icon']), label: Text(nav['title'])))
-            .toList(),
-        selectedIndex: 0);
+    return isSmallScreen
+        ? const SizedBox.shrink()
+        : Container(
+            decoration: BoxDecoration(
+                border: isDark
+                    ? const Border(right: BorderSide(color: Colors.amber))
+                    : const Border(right: BorderSide(color: Colors.white))),
+            child: NavigationRail(
+                onDestinationSelected: (val) {
+                  context.read<NavigationStateProvider>().changeIndex = val;
+                  context.read<NavigationStateProvider>().changePageTo = val;
+                },
+                backgroundColor: isDark ? Colors.black54 : Colors.amber,
+                elevation: isDark ? 1.0 : 50.0,
+                groupAlignment: 0.0,
+                destinations: navigationBars
+                    .map((nav) => NavigationRailDestination(
+                        icon: Tooltip(
+                            message: nav['title'], child: Icon(nav['icon'])),
+                        label: Tooltip(
+                            message: nav['title'], child: Text(nav['title']))))
+                    .toList(),
+                selectedIndex:
+                    context.watch<NavigationStateProvider>().navIndex),
+          );
   }
 }

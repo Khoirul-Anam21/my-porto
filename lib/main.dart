@@ -1,3 +1,6 @@
+
+
+import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
@@ -53,7 +56,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: Styles.themeData(
             context.watch<DarkThemeProvider>().darkTheme, context),
@@ -61,41 +64,63 @@ class MainApp extends StatelessWidget {
   }
 }
 
-class MainView extends StatefulWidget {
+class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);
 
-  @override
-  State<MainView> createState() => _MainViewState();
-}
-
-class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     bool isSmallScreen =
         MediaQuery.of(context).size.width < ScreenSizeLib.smallWidth;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Anam'),
-        actions: <Widget>[
-          IconButton(
-            icon: context.watch<DarkThemeProvider>().darkTheme
-                ? const Icon(Icons.dark_mode)
-                : const Icon(Icons.light_mode),
-            onPressed: () async {
-              final darkPrefs = await DarkThemePreference().getTheme();
-              // ignore: use_build_context_synchronously
-              context.read<DarkThemeProvider>().darkTheme = !darkPrefs;
-            },
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  height: 55,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.amber,
+                    ),
+                    child: Transform.scale(
+                      scale: 0.7,
+                      child: DayNightSwitcher(
+                          isDarkModeEnabled:
+                              context.watch<DarkThemeProvider>().darkTheme,
+                          onStateChanged: (newVal) {
+                            final darkPrefs =
+                                context.read<DarkThemeProvider>().darkTheme;
+                            context.read<DarkThemeProvider>().darkTheme =
+                                !darkPrefs;
+                          }),
+                    ))
+              ],
+            ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite))
+          const MainBodyWidget(),
         ],
       ),
-      body: const IntroView(),
-      bottomNavigationBar: isSmallScreen
-          ? const NavBarPhone()
-          : null,
+      bottomNavigationBar: isSmallScreen ? const NavBarPhone() : null,
     );
   }
 }
 
+class MainBodyWidget extends StatefulWidget {
+  const MainBodyWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<MainBodyWidget> createState() => _MainBodyWidgetState();
+}
+
+class _MainBodyWidgetState extends State<MainBodyWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return const IntroView();
+  }
+}

@@ -6,7 +6,7 @@ class EducationsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepOrangeAccent,
+      padding: const EdgeInsets.all(8.0),
       child: const Center(child: Text("MY EDUCATIONS")),
     );
   }

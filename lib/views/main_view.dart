@@ -2,6 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/providers/navigation_state_provider.dart';
+import 'package:porto_web/providers/theme_provider.dart';
+import 'package:porto_web/themes/dark_colors.dart';
+import 'package:porto_web/themes/light_colors.dart';
 import 'package:porto_web/views/view_lib.dart';
 import 'package:provider/provider.dart';
 
@@ -13,14 +16,8 @@ class IntroView extends StatefulWidget {
 }
 
 class _IntroViewState extends State<IntroView> {
-  // PageController _renderPageController() {
-  //   return PageController(
-  //       initialPage: context.read<NavigationStateProvider>().index);
-  // }
-
   @override
   void initState() {
-    // _renderPageController();
     super.initState();
   }
 
@@ -42,10 +39,9 @@ class _IntroViewState extends State<IntroView> {
                   context.watch<NavigationStateProvider>().mainPageController,
               onPageChanged: (val) {
                 context.read<NavigationStateProvider>().changeIndex = val;
-                // context.read<NavigationStateProvider>().changePageTo = val;
               },
               children: const [
-                AboutView(),
+                IdentityView(),
                 ProjectsView(),
                 SkillsView(),
                 EducationsView()
@@ -58,25 +54,55 @@ class _IntroViewState extends State<IntroView> {
   }
 }
 
-class AboutView extends StatelessWidget {
-  const AboutView({
-    Key? key,
-  }) : super(key: key);
+class IdentityView extends StatelessWidget {
+  const IdentityView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = context.watch<DarkThemeProvider>().darkTheme;
     return Container(
-      color: Colors.cyanAccent,
-      child: const Center(child: Text("ABOUT ME")),
+      padding: const EdgeInsets.only(right: 40, left: 0, top: 40, bottom: 40),
+      child: Container(
+          decoration: BoxDecoration(
+              border: isDark ? Border.all(color: Colors.amber.withOpacity(0.2)) : null,
+              boxShadow: isDark
+                  ? null
+                  : <BoxShadow>[
+                      BoxShadow(
+                        offset: const Offset(8, 8),
+                        color: Colors.black26.withOpacity(0.3),
+                        blurRadius: 8,
+                        spreadRadius: 2,
+                      )
+                    ],
+              color: isDark
+                  ? AppDarkTheme.kMainColorTwo
+                  : AppLightTheme.kMainColorTwo,
+              borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(40),
+                  bottomRight: Radius.circular(40))),
+          child: const Center(child: Text("TES"))),
     );
-    // return Expanded(
-    //   flex: 8,
-    //   child: Row(
-    //     children: const [
-    //       Expanded(child: IntroTitle()),
-    //       Expanded(child: IntroImage()),
-    //     ],
-    //   ),
-    // );
   }
 }
+
+// class AboutView extends StatelessWidget {
+//   const AboutView({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     bool isDark = context.watch<DarkThemeProvider>().darkTheme;
+//     print(isDark);
+//     return Container(
+//       color: Color.fromARGB(0, 125, 130, 190),
+//       // child: Row(
+//       //   children: const [
+//       //     Expanded(child: IntroTitle()),
+//       //     Expanded(child: IntroImage()),
+//       //   ],
+//       // ),
+//     );
+//   }
+// }

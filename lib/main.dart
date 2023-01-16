@@ -4,7 +4,6 @@ import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
-import 'package:porto_web/preferences/dark_theme_prefs.dart';
 import 'package:porto_web/providers/navigation_state_provider.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/my_themes.dart';
@@ -75,6 +74,7 @@ class MainView extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          const MainBodyWidget(),
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: Row(
@@ -101,7 +101,6 @@ class MainView extends StatelessWidget {
               ],
             ),
           ),
-          const MainBodyWidget(),
         ],
       ),
       bottomNavigationBar: isSmallScreen ? const NavBarPhone() : null,

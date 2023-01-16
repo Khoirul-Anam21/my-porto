@@ -3,7 +3,6 @@ import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
 import 'package:porto_web/providers/navigation_state_provider.dart';
 import 'package:porto_web/providers/theme_provider.dart';
-import 'package:porto_web/themes/light_colors.dart';
 import 'package:provider/provider.dart';
 
 class NavBarLarge extends StatefulWidget {
@@ -29,12 +28,12 @@ class _NavBarLargeState extends State<NavBarLarge> {
                     ? const Border(right: BorderSide(color: Colors.amber))
                     : const Border(right: BorderSide(color: Colors.white))),
             child: NavigationRail(
+              backgroundColor: Theme.of(context).navigationRailTheme.backgroundColor,
                 onDestinationSelected: (val) {
                   context.read<NavigationStateProvider>().changeIndex = val;
                   context.read<NavigationStateProvider>().changePageTo = val;
                 },
-                backgroundColor: isDark ? Colors.black54 : Colors.amber,
-                elevation: isDark ? 1.0 : 50.0,
+                elevation: isDark ? 4.0 : 40.0,
                 groupAlignment: 0.0,
                 destinations: navigationBars
                     .map((nav) => NavigationRailDestination(

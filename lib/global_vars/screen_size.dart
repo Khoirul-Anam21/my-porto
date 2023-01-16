@@ -1,3 +1,3 @@
 class ScreenSizeLib {
-  static int smallWidth = 360;
+  static int smallWidth = 400;
 }

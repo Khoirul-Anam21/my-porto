@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/dark_colors.dart';
 import 'package:porto_web/themes/light_colors.dart';
@@ -15,7 +16,13 @@ class SkillsView extends StatelessWidget {
         color:
             isDark ? AppDarkTheme.kMainColorTwo : AppLightTheme.kMainColorTwo,
       ),
-      child: const Center(child: Text("MY SKILLS")),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Center(child: Text("MY SKILLS", style: Theme.of(context).textTheme.headline3,)),
+          const SkillsCircle()
+        ],
+      ),
     );
   }
 }

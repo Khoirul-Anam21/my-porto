@@ -1,6 +1,9 @@
-export 'intro/side_nav.dart';
-export 'intro/intro_title.dart';
-export 'intro/intro_pict.dart';
+
+export 'primary/intro_title.dart';
+export 'primary/intro_pict.dart';
 export 'nav_data.dart';
-export 'primary/navbar_phone.dart';
-export 'primary/navbar_large.dart';
+export 'skills_data.dart';
+export 'navs/navbar_phone.dart';
+export 'navs/navbar_large.dart';
+export 'primary/circle_decor.dart';
+export 'primary/circle_skills.dart';

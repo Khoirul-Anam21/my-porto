@@ -40,12 +40,9 @@ class _IntroViewState extends State<IntroView> {
               onPageChanged: (val) {
                 context.read<NavigationStateProvider>().changeIndex = val;
               },
-              children: const [
-                IdentityView(),
-                ProjectsView(),
-                SkillsView(),
-                EducationsView()
-              ],
+              children: List<Widget>.from(navigationBars.map((nav){
+                return nav["widget"]; // perhatikan ini
+              }).toList()),
             ),
           ),
         ),
@@ -137,6 +134,8 @@ class TextIntroWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const CircleDecoration(),
+            const SizedBox(height: 40,),
             Text(
               "I'm Mohammad Khoirul Anam",
               style: Theme.of(context).textTheme.headline4,

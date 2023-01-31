@@ -25,7 +25,7 @@ class Styles {
       primarySwatch: isDarkTheme
           ? createMaterialColor(AppDarkTheme.kMainColorOne)
           : createMaterialColor(AppLightTheme.kMainColorOne),
-      primaryColor: isDarkTheme ? Colors.black : Colors.white,
+      primaryColor: isDarkTheme ? AppLightTheme.kMainColorTwo : AppDarkTheme.kMainColorTwo,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         unselectedItemColor: isDarkTheme ? Colors.white : Colors.black,
         unselectedIconTheme:

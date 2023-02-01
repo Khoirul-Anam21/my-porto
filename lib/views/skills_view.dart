@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/dark_colors.dart';
-import 'package:porto_web/themes/light_colors.dart';
 import 'package:provider/provider.dart';
 
 class SkillsView extends StatelessWidget {
@@ -14,7 +13,7 @@ class SkillsView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color:
-            isDark ? AppDarkTheme.kMainColorTwo : AppLightTheme.kMainColorTwo,
+            isDark ? AppDarkTheme.kMainColorTwo : null,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

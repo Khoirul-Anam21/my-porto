@@ -5,7 +5,6 @@ import 'package:porto_web/providers/navigation_state_provider.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/dark_colors.dart';
 import 'package:porto_web/themes/light_colors.dart';
-import 'package:porto_web/views/view_lib.dart';
 import 'package:provider/provider.dart';
 
 class IntroView extends StatefulWidget {

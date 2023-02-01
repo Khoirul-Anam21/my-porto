@@ -20,6 +20,7 @@ class Styles {
             color: Colors.black,
           );
     return ThemeData(
+      textTheme: TextTheme(bodyText2: TextStyle(color: isDarkTheme? AppLightTheme.kMainColorTwo: AppDarkTheme.kMainColorTwo)),
       scaffoldBackgroundColor: isDarkTheme ? AppDarkTheme.kMainColorOne
           : Colors.white,
       primarySwatch: isDarkTheme

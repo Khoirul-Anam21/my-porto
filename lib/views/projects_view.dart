@@ -10,27 +10,16 @@ class ProjectsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isDark = context.watch<DarkThemeProvider>().darkTheme;
-    return Flex(
-      direction: Axis.horizontal,
+    return Row(
       children: [
-        const Expanded(flex: 15, child: Center(child: Text("MY PROJECTS"))),
         Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: isDark
-                      ? AppDarkTheme.kMainColorTwo
-                      : AppLightTheme.kMainColorTwo,
-                  boxShadow: isDark
-                      ? null
-                      : const [
-                          BoxShadow(
-                              offset: Offset(-4, 0),
-                              color: Colors.black26,
-                              blurRadius: 8,
-                              spreadRadius: 2)
-                        ]),
-            ))
+          flex: 15,
+          child: Container(
+              color:
+                  isDark ? AppDarkTheme.kMainColorTwo : AppLightTheme.kMainColorTwo,
+              child: const Center(child: Text("MY PROJECTS"))),
+        ),
+            Expanded(flex: 1, child: Container(color: isDark ?  AppDarkTheme.kMainColorOne : Colors.white)),
       ],
     );
   }

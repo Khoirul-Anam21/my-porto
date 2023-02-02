@@ -4,6 +4,7 @@ import 'package:circular_rotation/circular_rotation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:porto_web/components/components_lib.dart';
+import 'package:porto_web/global_vars/global_vars.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/dark_colors.dart';
 import 'package:porto_web/themes/light_colors.dart';
@@ -33,7 +34,7 @@ class SkillsCircle extends StatelessWidget {
               repeatAnimation: true,
               firstCircleAnimationDuration: 14000,
               firstCircleRadius: 40,
-              firstCircleWidgets: List<Widget>.from(skills
+              firstCircleWidgets: List<Widget>.from(PersonalData.skills
                   .map((skill) => Transform.scale(
                         scale: 1.7,
                         child: Container(
@@ -83,7 +84,7 @@ class _AnimatedTechNameState extends State<AnimatedTechName> {
   void initState() {
     super.initState();
     _techNames =
-        List<String>.from(skills.map((skill) => skill['name']).toList());
+        List<String>.from(PersonalData.skills.map((skill) => skill['name']).toList());
     _counter = 0;
     _currentText = _techWidgets[0];
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {

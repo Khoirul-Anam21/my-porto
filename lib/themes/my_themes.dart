@@ -20,13 +20,32 @@ class Styles {
             color: Colors.black,
           );
     return ThemeData(
-      textTheme: TextTheme(bodyText2: TextStyle(color: isDarkTheme? AppLightTheme.kMainColorTwo: AppDarkTheme.kMainColorTwo)),
-      scaffoldBackgroundColor: isDarkTheme ? AppDarkTheme.kMainColorOne
-          : Colors.white,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.resolveWith((states) {
+          if (isDarkTheme) {
+            return AppLightTheme.kMainColorTwo;
+          }
+          return AppDarkTheme.kMainColorTwo;
+        }),
+        foregroundColor: MaterialStateProperty.resolveWith((states) =>
+            isDarkTheme
+                ? AppDarkTheme.kMainColorTwo
+                : AppLightTheme.kMainColorTwo),
+      )),
+      textTheme: TextTheme(
+          bodyText2: TextStyle(
+              color: isDarkTheme
+                  ? AppLightTheme.kMainColorTwo
+                  : AppDarkTheme.kMainColorTwo)),
+      scaffoldBackgroundColor:
+          isDarkTheme ? AppDarkTheme.kMainColorOne : Colors.white,
       primarySwatch: isDarkTheme
           ? createMaterialColor(AppDarkTheme.kMainColorOne)
           : createMaterialColor(AppLightTheme.kMainColorOne),
-      primaryColor: isDarkTheme ? AppLightTheme.kMainColorTwo : AppDarkTheme.kMainColorTwo,
+      primaryColor: isDarkTheme
+          ? AppLightTheme.kMainColorTwo
+          : AppDarkTheme.kMainColorTwo,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         unselectedItemColor: isDarkTheme ? Colors.white : Colors.black,
         unselectedIconTheme:
@@ -46,17 +65,26 @@ class Styles {
         selectedLabelTextStyle: selectedNavRailLabelStyle,
       ),
       backgroundColor: isDarkTheme ? Colors.blueGrey[800] : Colors.white,
-      indicatorColor: isDarkTheme ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
-      hintColor: isDarkTheme ? const Color(0xff280C0B) : const Color(0xffEECED3),
-      highlightColor: isDarkTheme ? const Color(0xff372901) : const Color(0xffFCE192),
-      hoverColor: isDarkTheme ? const Color(0xff3A3A3B) : const Color(0xff4285F4),
-      focusColor: isDarkTheme ? const Color(0xff0B2512) : const Color(0xffA8DAB5),
+      indicatorColor:
+          isDarkTheme ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
+      hintColor:
+          isDarkTheme ? const Color(0xff280C0B) : const Color(0xffEECED3),
+      highlightColor:
+          isDarkTheme ? const Color(0xff372901) : const Color(0xffFCE192),
+      hoverColor:
+          isDarkTheme ? const Color(0xff3A3A3B) : const Color(0xff4285F4),
+      focusColor:
+          isDarkTheme ? const Color(0xff0B2512) : const Color(0xffA8DAB5),
       disabledColor: Colors.grey,
-      cardColor: isDarkTheme ? createMaterialColor(const Color.fromARGB(0, 24, 36, 255)) : Colors.white,
+      cardColor: isDarkTheme
+          ? createMaterialColor(const Color.fromARGB(0, 24, 36, 255))
+          : Colors.white,
       canvasColor: isDarkTheme ? Colors.black : Colors.grey[50],
       brightness: isDarkTheme ? Brightness.dark : Brightness.light,
       buttonTheme: Theme.of(context).buttonTheme.copyWith(
-          colorScheme: isDarkTheme ?const ColorScheme.dark() :const ColorScheme.light()),
+          colorScheme: isDarkTheme
+              ? const ColorScheme.dark()
+              : const ColorScheme.light()),
       appBarTheme: const AppBarTheme(
         elevation: 0.0,
       ),

@@ -6,3 +6,4 @@ export 'navs/navbar_phone.dart';
 export 'navs/navbar_large.dart';
 export 'primary/circle_decor.dart';
 export 'primary/circle_skills.dart';
+export 'primary/project_grid.dart';

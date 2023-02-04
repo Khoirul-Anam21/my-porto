@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
 import 'package:porto_web/providers/navigation_state_provider.dart';
+import 'package:porto_web/providers/project_provider.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/my_themes.dart';
 import 'package:porto_web/views/view_lib.dart';
@@ -40,7 +41,8 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => darkThemeProvider),
-        ChangeNotifierProvider(create: (_) => NavigationStateProvider())
+        ChangeNotifierProvider(create: (_) => NavigationStateProvider()),
+        ChangeNotifierProvider(create: (_) => ProjectProvider())
       ],
       child: const MainApp(),
     );

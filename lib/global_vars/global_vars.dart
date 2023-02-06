@@ -3,6 +3,8 @@ export 'screen_size.dart';
 class PersonalData {
   static const String cvURL =
       'https://docs.google.com/document/d/1B09vjlvs6BRPIiXFsgUlOEos6JMNCoZjHxe3PVf8WVA/edit?usp=sharing';
+  static const String githubURL = 'https://github.com/Khoirul-Anam21';
+  static const String gitlabURL = 'https://gitlab.com/Khoirul-Anam';
 
   static const List<Map> skills = [
     {'name': 'NodeJS', 'svg': 'assets/icons8-nodejs.svg', 'slug': 'nodejs'},

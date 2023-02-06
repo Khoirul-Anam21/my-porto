@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
 import 'package:porto_web/providers/project_provider.dart';
@@ -16,6 +17,7 @@ class ProjectsView extends StatelessWidget {
     bool isDark = context.watch<DarkThemeProvider>().darkTheme;
     Map<String, dynamic>? project =
         context.watch<ProjectProvider>().currentProject;
+    Color miscColor = isDark ? Colors.white : AppDarkTheme.kMainColorOne;
 
     return Row(
       children: [
@@ -33,7 +35,7 @@ class ProjectsView extends StatelessWidget {
                       child: project == null
                           ? const Text("not yet exist")
                           : Text(project['desc'])),
-                  const Center(child: Text("MY PROJECTS")),
+                  ProjectsViewTitle(miscColor: miscColor),
                 ],
               )),
         ),
@@ -42,6 +44,70 @@ class ProjectsView extends StatelessWidget {
             child: Container(
                 color: isDark ? AppDarkTheme.kMainColorOne : Colors.white)),
       ],
+    );
+  }
+}
+
+class ProjectsViewTitle extends StatelessWidget {
+  const ProjectsViewTitle({
+    Key? key,
+    required this.miscColor,
+  }) : super(key: key);
+
+  final Color miscColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(25.0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                  child: Padding(
+                padding: const EdgeInsets.only(right: 25.0),
+                child: Divider(
+                  color: miscColor,
+                ),
+              )),
+              Text(
+                "My Projects",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              Expanded(
+                  child: Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: Divider(
+                  color: miscColor,
+                ),
+              )),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Visit my repositories at  "),
+              RepoButton(
+                color: miscColor,
+                svgImg: 'assets/icons8-github-bw.svg',
+                urlDest: PersonalData.githubURL,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              RepoButton(
+                  color: miscColor,
+                  svgImg: 'assets/icons8-gitlab.svg',
+                  urlDest: PersonalData.gitlabURL)
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

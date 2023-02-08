@@ -8,6 +8,7 @@ import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/dark_colors.dart';
 import 'package:porto_web/themes/light_colors.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProjectsView extends StatelessWidget {
   const ProjectsView({super.key});
@@ -117,6 +118,8 @@ class ProjectsScrollerWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+
+
   @override
   Widget build(BuildContext context) {
     bool isDark = context.watch<DarkThemeProvider>().darkTheme;
@@ -159,9 +162,10 @@ class ProjectsScrollerWidget extends StatelessWidget {
                     },
                   ),
                   child: SizedBox(
-                    height: 250,
+                    height: 140,
                     child: GridView.count(
-                      mainAxisSpacing: 45.0,
+                      childAspectRatio: 0.5,
+                      mainAxisSpacing: 15.0,
                       physics: const BouncingScrollPhysics(),
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -170,7 +174,8 @@ class ProjectsScrollerWidget extends StatelessWidget {
                           (project) => ProjectGrid(
                               id: project['id'],
                               img: project['img'],
-                              title: project['title']))),
+                              title: project['title'],
+                              appCat: project['app'],),)),
                     ),
                   ),
                 ),

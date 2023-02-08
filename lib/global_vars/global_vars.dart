@@ -27,6 +27,12 @@ class PersonalData {
     },
   ];
 
+  static const List<Map> appTitles = [
+    {'name': 'Flutter Application', 'slug': 'flutter-app', 'img': 'assets/bg-project-btns/flutter-ss.png'},
+    {'name': 'Node.js Application', 'slug': 'node-app', 'img': 'assets/bg-project-btns/node-ss.png'},
+    {'name': 'Golang Application', 'slug': 'go-app', 'img': 'assets/bg-project-btns/go-ss.png'},
+  ];
+
   // desc project mengandung deskripsi, jugul, gambar, link repo, tech stack
 
   static const List<Map> projects = [
@@ -36,6 +42,7 @@ class PersonalData {
       'img': 'tes',
       'repo': 'github.com',
       'tech': ['nodejs', 'express', 'git', 'postgres'],
+      'app': 'flutter-app',
       'desc':
           'Bruh bruh sdfasd dfadfan fdafdnfdan fdaf fdafadn fadfa fdafadf fafadfaf'
     },
@@ -45,8 +52,9 @@ class PersonalData {
       'img': 'tes',
       'repo': 'github.com',
       'tech': ['nodejs', 'express'],
+      'app': 'node-app',
       'desc':
-          'Dalang pembunuhan munir adalah...'
+          'Dalang pembunuhan munir adalah...mka21fEb02x01'
     },
     {
       'id' : 3,
@@ -54,6 +62,7 @@ class PersonalData {
       'img': 'tes',
       'repo': 'github.com',
       'tech': ['go', 'git', 'postgres'],
+      'app': 'go-app',
       'desc':
           'Teng teng teng teng teng coblos gambar kocheng'
     },
@@ -63,6 +72,7 @@ class PersonalData {
       'img': 'tes',
       'repo': 'github.com',
       'tech': ['flutter'],
+      'app': 'flutter-app',
       'desc':
           'samlekom'
     },
@@ -72,8 +82,9 @@ class PersonalData {
       'img': 'tes',
       'repo': 'github.com',
       'tech': ['nodejs', 'postgres'],
+      'app': 'node-app',
       'desc':
-          'cok'
+          'Consequat tempor exercitation officia mollit officia ipsum ea deserunt Lorem labore exercitation ex incididunt. Exercitation deserunt duis minim cillum duis incididunt cupidatat enim aliqua. Nulla ullamco excepteur ex tempor sunt consequat non sint. Ad nisi officia culpa mollit deserunt. Dolore occaecat irure dolore nulla minim dolore sit sint.'
     },
   ];
 }

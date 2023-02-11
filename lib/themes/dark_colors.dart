@@ -6,4 +6,6 @@ class AppDarkTheme {
   static const Color kMainTextColor = Color(0x00FFFFFF);
   static const Color kMainAppNavColor = Color(0x00353647);
   static  Color kMainCaptionColor = const Color(0x00FFFFFF).withOpacity(0.6);
+  static const Color kRepoBtnColor = Color(0xff545D82);
+
 }

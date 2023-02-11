@@ -40,7 +40,7 @@ class PersonalData {
       'id' : 1,
       'title': 'Sample Project',
       'img': 'tes',
-      'repo': 'github.com',
+      'repo': 'https://github.com',
       'tech': ['nodejs', 'express', 'git', 'postgres'],
       'app': 'flutter-app',
       'desc':

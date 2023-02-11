@@ -8,7 +8,6 @@ import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/dark_colors.dart';
 import 'package:porto_web/themes/light_colors.dart';
 import 'package:provider/provider.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProjectsView extends StatelessWidget {
   const ProjectsView({super.key});
@@ -31,11 +30,42 @@ class ProjectsView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const ProjectsScrollerWidget(),
-                  Center(
-                      child: project == null
-                          ? const Text("not yet exist")
-                          : Text(project['desc'])),
+                  Column(
+                    children: [
+                      const ProjectsScrollerWidget(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 100),
+                        child: Column(
+                          children: [
+                            project == null
+                                ? const Text("not yet exist")
+                                : Column(children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          project['title'],
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline4,
+                                        ),
+                                        RepoWidget(repo: project['repo']),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(project['desc']),
+                                    TechWidget(
+                                      techs: List<String>.from(project['tech']),
+                                    ),
+                                  ]),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                   ProjectsViewTitle(miscColor: miscColor),
                 ],
               )),
@@ -118,8 +148,6 @@ class ProjectsScrollerWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-
-
   @override
   Widget build(BuildContext context) {
     bool isDark = context.watch<DarkThemeProvider>().darkTheme;
@@ -171,11 +199,13 @@ class ProjectsScrollerWidget extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       crossAxisCount: 1,
                       children: List<Widget>.from(PersonalData.projects.map(
-                          (project) => ProjectGrid(
-                              id: project['id'],
-                              img: project['img'],
-                              title: project['title'],
-                              appCat: project['app'],),)),
+                        (project) => ProjectGrid(
+                          id: project['id'],
+                          img: project['img'],
+                          title: project['title'],
+                          appCat: project['app'],
+                        ),
+                      )),
                     ),
                   ),
                 ),

@@ -24,6 +24,8 @@ class ProjectGrid extends StatelessWidget {
     var selectedImg = PersonalData.appTitles
         .where((element) => appCat == element['slug'])
         .toList()[0];
+    var currentProj = context.watch<ProjectProvider>().currentProject;
+
     return GestureDetector(
       onTap: () {
         context.read<ProjectProvider>().switchProject = id;
@@ -33,8 +35,14 @@ class ProjectGrid extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Stack(
             children: [
-              Container(
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 450),
                 decoration: BoxDecoration(
+                    border: currentProj == null
+                        ? null
+                        : currentProj['id'] == id
+                            ? Border.all(color: Colors.amber, width: 4)
+                            : null,
                     image: DecorationImage(
                         image: AssetImage(selectedImg['img']),
                         fit: BoxFit.cover),

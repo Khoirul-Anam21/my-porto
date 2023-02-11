@@ -8,3 +8,4 @@ export 'primary/circle_decor.dart';
 export 'primary/circle_skills.dart';
 export 'primary/project_grid.dart';
 export 'primary/repo_button.dart';
+export 'primary/tech_repo.dart';

@@ -1,6 +1,8 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
+import 'package:porto_web/firebase_options.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
 import 'package:porto_web/providers/navigation_state_provider.dart';
 import 'package:porto_web/providers/project_provider.dart';
@@ -8,14 +10,10 @@ import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/my_themes.dart';
 import 'package:porto_web/views/view_lib.dart';
 import 'package:provider/provider.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
-  await Supabase.initialize(
-    url: 'https://wfhrfmgsnlhgxnpxndei.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmaHJmbWdzbmxoZ3hucHhuZGVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzU4MjI4MTIsImV4cCI6MTk5MTM5ODgxMn0.2UL39njsfPFfSnGXasTuC_v4SLBdTuTJkq7A2ZSW_1E',
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 

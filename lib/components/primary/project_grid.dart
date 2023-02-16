@@ -4,7 +4,6 @@ import 'package:porto_web/providers/project_provider.dart';
 import 'package:porto_web/providers/theme_provider.dart';
 import 'package:porto_web/themes/dark_colors.dart';
 import 'package:provider/provider.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProjectGrid extends StatelessWidget {
   const ProjectGrid(
@@ -25,6 +24,9 @@ class ProjectGrid extends StatelessWidget {
         .where((element) => appCat == element['slug'])
         .toList()[0];
     var currentProj = context.watch<ProjectProvider>().currentProject;
+    String appTitle = PersonalData.appTitles
+        .where((element) => element['slug'] == appCat)
+        .elementAt(0)['name'];
 
     return GestureDetector(
       onTap: () {
@@ -77,7 +79,7 @@ class ProjectGrid extends StatelessWidget {
                         title,
                         style: Theme.of(context).textTheme.headline6,
                       ),
-                      Text(title)
+                      Text(appTitle)
                     ],
                   ),
                 ),

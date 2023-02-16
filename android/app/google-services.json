@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "648795845826",
+    "project_id": "porto-60356",
+    "storage_bucket": "porto-60356.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648795845826:android:c44f079a25af37c6a9b75b",
+        "android_client_info": {
+          "package_name": "com.example.porto_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648795845826-f9kod7q0lrijca0kr3do2v6rht1k3a4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0gAaIrH2omo4aTICfn4buqRPPWkeH_MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648795845826-f9kod7q0lrijca0kr3do2v6rht1k3a4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

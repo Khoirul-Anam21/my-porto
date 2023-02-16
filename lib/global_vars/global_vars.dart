@@ -38,53 +38,69 @@ class PersonalData {
   static const List<Map> projects = [
     {
       'id' : 1,
-      'title': 'Sample Project',
+      'title': 'Evnt.in: Ticket App',
       'img': 'tes',
-      'repo': 'https://github.com',
-      'tech': ['nodejs', 'express', 'git', 'postgres'],
+      'repo': 'https://github.com/Khoirul-Anam21/ticket-app',
+      'tech': ['flutter', 'git'],
       'app': 'flutter-app',
+      'spbase-dir': 'main/flutter/ticket-app/',
       'desc':
-          'Bruh bruh sdfasd dfadfan fdafdnfdan fdaf fdafadn fadfa fdafadf fafadfaf'
+          'Aplikasi Sederhana untuk pemesanan tiket dengan database dummy. Aplikasi ini saya buat untuk memenuhi submission dari beasiswa Dicoding x IDCamp di path Multiplatform App. '
     },
     {
       'id' : 2,
-      'title': 'Sample Project Dua',
+      'title': 'Personal CV Website',
       'img': 'tes',
-      'repo': 'github.com',
-      'tech': ['nodejs', 'express'],
-      'app': 'node-app',
+      'repo': 'https://github.com/Khoirul-Anam21/my-porto',
+      'tech': ['flutter', 'git'],
+      'app': 'flutter-app',
+      'spbase-dir': 'main/flutter/porto/',
       'desc':
           'Dalang pembunuhan munir adalah...mka21fEb02x01'
     },
     {
       'id' : 3,
-      'title': 'Sample Project Tiga',
+      'title': 'Second Hand',
       'img': 'tes',
-      'repo': 'github.com',
-      'tech': ['go', 'git', 'postgres'],
-      'app': 'go-app',
+      'repo': 'https://github.com/Wifaldy/second-hand',
+      'tech': ['nodejs', 'git', 'postgres', 'express'],
+      'app': 'node-app',
+      'spbase-dir': 'main/node/second-hand/',
       'desc':
           'Teng teng teng teng teng coblos gambar kocheng'
     },
     {
       'id' : 4,
-      'title': 'Sample Project Empat',
+      'title': 'Game Data CRUD',
       'img': 'tes',
-      'repo': 'github.com',
-      'tech': ['flutter'],
-      'app': 'flutter-app',
+      'repo': 'https://gitlab.com/Khoirul-Anam/game-app-data',
+      'tech': ['nodejs', 'postgres', 'express', 'git'],
+      'app': 'node-app',
+      'spbase-dir': 'main/node/game-app/',
       'desc':
-          'samlekom'
+          'samlekom mamank'
     },
     {
       'id' : 5,
-      'title': 'Sample Project Lima',
+      'title': 'Task Management API',
       'img': 'tes',
-      'repo': 'github.com',
-      'tech': ['nodejs', 'postgres'],
-      'app': 'node-app',
+      'repo': 'https://github.com/final-project-KMGO-2/hacktiv8_fp_3',
+      'tech': ['go', 'postgres', 'git'],
+      'app': 'go-app',
+      'spbase-dir': 'main/go/fp3/',
       'desc':
           'Consequat tempor exercitation officia mollit officia ipsum ea deserunt Lorem labore exercitation ex incididunt. Exercitation deserunt duis minim cillum duis incididunt cupidatat enim aliqua. Nulla ullamco excepteur ex tempor sunt consequat non sint. Ad nisi officia culpa mollit deserunt. Dolore occaecat irure dolore nulla minim dolore sit sint.'
     },
+    {
+      'id' : 6,
+      'title': 'E-Commerce Simple API',
+      'img': 'tes',
+      'repo': 'https://github.com/final-project-KMGO-2/hacktiv8_fp4',
+      'tech': ['go', 'postgres', 'git'],
+      'app': 'go-app',
+      'spbase-dir': 'main/go/fp4/',
+      'desc':
+          'Consequat tempor exercitation officia mollit officia ipsum ea deserunt Lorem labore exercitation ex incididunt. Exercitation deserunt duis minim cillum duis incididunt cupidatat enim aliqua. Nulla ullamco excepteur ex tempor sunt consequat non sint. Ad nisi officia culpa mollit deserunt. Dolore occaecat irure dolore nulla minim dolore sit sint.'
+    }
   ];
 }

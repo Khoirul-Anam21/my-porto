@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>648795845826-hjhamlh2ehqp4lsgbiqh5pknn8teq090.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.648795845826-hjhamlh2ehqp4lsgbiqh5pknn8teq090</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBiy7Ti_DEeTb2ogiwQyBBQgBjLwuCQ9Dc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>648795845826</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.portoWeb</string>
+	<key>PROJECT_ID</key>
+	<string>porto-60356</string>
+	<key>STORAGE_BUCKET</key>
+	<string>porto-60356.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:648795845826:ios:c88a3734fd43d446a9b75b</string>
+</dict>
+</plist>

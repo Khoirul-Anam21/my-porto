@@ -8,8 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TechWidget extends StatelessWidget {
-  const TechWidget(
-      {Key? key, required this.techs, this.repoUrl = 'github.com'})
+  const TechWidget({Key? key, required this.techs, this.repoUrl = 'github.com'})
       : super(key: key);
 
   final List<String> techs;
@@ -43,22 +42,24 @@ class RepoWidget extends StatelessWidget {
     return Transform.scale(
       scale: 0.9,
       child: TextButton(
-          onPressed: () async{
+          onPressed: () async {
             final Uri repoUrl = Uri.parse(repo);
             if (!await launchUrl(repoUrl)) {
-                throw Exception("INVALID URL");
-              }
+              throw Exception("INVALID URL");
+            }
           },
           style: ButtonStyle(
             side: MaterialStateProperty.resolveWith((states) {
-              if(states.contains(MaterialState.hovered) && isDark){
+              if (states.contains(MaterialState.hovered) && isDark) {
                 return BorderSide(color: Colors.white.withOpacity(0.5));
-              } 
-              if(states.contains(MaterialState.hovered)&& !isDark) {
-                return BorderSide(color: AppDarkTheme.kMainColorTwo.withOpacity(0.5));
+              }
+              if (states.contains(MaterialState.hovered) && !isDark) {
+                return BorderSide(
+                    color: AppDarkTheme.kMainColorTwo.withOpacity(0.5));
               }
             }),
-            textStyle: MaterialStateProperty.resolveWith((states) => const TextStyle(fontWeight: FontWeight.w300)),
+            textStyle: MaterialStateProperty.resolveWith(
+                (states) => const TextStyle(fontWeight: FontWeight.w300)),
             foregroundColor: MaterialStateProperty.resolveWith(
                 (states) => isDark ? Colors.white : AppDarkTheme.kMainColorTwo),
             shape: MaterialStateProperty.resolveWith((states) =>
@@ -80,7 +81,11 @@ class RepoWidget extends StatelessWidget {
                 const SizedBox(
                   width: 8,
                 ),
-                SvgPicture.asset(repoImg, color: isDark ? Colors.white : AppDarkTheme.kMainColorTwo,)
+                SvgPicture.asset(
+                  repoImg,
+                  width: isGithub? null : 24,
+                  color: isDark ? Colors.white : AppDarkTheme.kMainColorTwo,
+                )
               ],
             ),
           )),

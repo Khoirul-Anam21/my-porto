@@ -38,6 +38,19 @@ class Styles {
               color: isDarkTheme
                   ? Colors.white  
                   : AppDarkTheme.kMainColorTwo,),
+      headline5: TextStyle(
+              color: isDarkTheme
+                  ? Colors.white  
+                  : AppDarkTheme.kMainColorTwo,),
+      headline4: TextStyle(
+              color: isDarkTheme
+                  ? Colors.white  
+                  : AppDarkTheme.kMainColorTwo,),
+      headline3: TextStyle(
+        fontWeight: FontWeight.bold,
+              color: isDarkTheme
+                  ? Colors.white  
+                  : AppDarkTheme.kMainColorTwo,),
           bodyText2: TextStyle(
               color: isDarkTheme
                   ? AppLightTheme.kMainColorTwo

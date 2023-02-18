@@ -103,4 +103,12 @@ class PersonalData {
           'Consequat tempor exercitation officia mollit officia ipsum ea deserunt Lorem labore exercitation ex incididunt. Exercitation deserunt duis minim cillum duis incididunt cupidatat enim aliqua. Nulla ullamco excepteur ex tempor sunt consequat non sint. Ad nisi officia culpa mollit deserunt. Dolore occaecat irure dolore nulla minim dolore sit sint.'
     }
   ];
+
+  static const List<Map> educations = [
+    {'title': 'Bachelor of Information System', 'origin': 'Merdeka Malang University', 'date': 'Sep 2019 - Now'},
+    {'title': 'Golang for Back End Programmer', 'origin': 'Hacktiv8 - Kampus Merdeka', 'date': 'Aug 2022 - Dec 2022'},
+    {'title': 'BackEnd JavaScript Bootcamp', 'origin': 'Binar Academy - Kampus Merdeka', 'date': 'Feb 2022 - Jul 2022'},
+    {'title': 'Diploma of English', 'origin': 'Merdeka Malang University - Double Degree', 'date': 'Sep 2019 - Aug 2022'},
+    {'title': 'Science Major', 'origin': 'SMAN I Pamekasan', 'date': '2016 - 2019'},
+  ];
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:porto_web/components/components_lib.dart';
 import 'package:porto_web/firebase_options.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
+import 'package:porto_web/providers/edu_scroll_provider.dart';
 import 'package:porto_web/providers/navigation_state_provider.dart';
 import 'package:porto_web/providers/project_provider.dart';
 import 'package:porto_web/providers/theme_provider.dart';
@@ -44,7 +45,8 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(create: (_) => darkThemeProvider),
         ChangeNotifierProvider(create: (_) => NavigationStateProvider()),
-        ChangeNotifierProvider(create: (_) => ProjectProvider())
+        ChangeNotifierProvider(create: (_) => ProjectProvider()),
+        ChangeNotifierProvider(create: (_) => EducationScrollControllerProvider()),
       ],
       child: const MainApp(),
     );

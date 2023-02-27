@@ -111,4 +111,6 @@ class PersonalData {
     {'title': 'Diploma of English', 'origin': 'Merdeka Malang University - Double Degree', 'date': 'Sep 2019 - Aug 2022'},
     {'title': 'Science Major', 'origin': 'SMAN I Pamekasan', 'date': '2016 - 2019'},
   ];
+
+  static const List<Map> certificates = [];
 }

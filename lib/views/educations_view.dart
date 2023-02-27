@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 import 'package:porto_web/components/primary/education_tile.dart';
 import 'package:porto_web/global_vars/global_vars.dart';
 import 'package:porto_web/providers/edu_scroll_provider.dart';
@@ -11,21 +14,153 @@ class EducationsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.only(top: 80, left: 100),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'My Education',
-              style: Theme.of(context).textTheme.headline3,
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+              padding: const EdgeInsets.only(top: 60, left: 100),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'My Educations',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const EducationList()
+                ],
+              )),
+        ),
+        Expanded(
+            child: Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/decor/bg-laptop.jpg'))),
+          child: Column(
+            children: [
+              Expanded(
+                flex: 6,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 60, left: 40, right: 40, bottom: 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'My Experiences',
+                        style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Expanded(
+                          child: ListView(
+                        children: List.generate(2, (index) => const ExpTile()),
+                      ))
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 4,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 50, left: 40, right: 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('My Certificates',
+                          style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white)),
+                      const SizedBox(
+                        height: 8.0,
+                      ),
+                      Expanded(
+                          child: GridView.count(
+                            scrollDirection: Axis.horizontal,
+                            childAspectRatio: 0.4,
+                            // mainAxisSpacing: 6,
+                            // crossAxisSpacing: 6,
+                            crossAxisCount: 2,
+                            children:
+                                List.generate(10, (index) => const CertTile()),
+                          ))
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ))
+      ],
+    );
+  }
+}
+
+class CertTile extends StatelessWidget {
+  const CertTile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const GlassMorphism(start: 0.15, end: 0, child: Center(child: Text('Samlekom', style: TextStyle(color: Colors.white),)));
+  }
+}
+
+class ExpTile extends StatelessWidget {
+  const ExpTile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const GlassMorphism(start: 0.15, end: 0, child: Padding(
+      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      child: Text('Samlekom', style: TextStyle(color: Colors.white)),
+    ));
+  }
+}
+
+class GlassMorphism extends StatelessWidget {
+  final Widget child;
+  final double start;
+  final double end;
+  const GlassMorphism({
+    Key? key,
+    required this.child,
+    required this.start,
+    required this.end,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: Container(
+          margin: const EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.white.withOpacity(start),
+                Colors.white.withOpacity(end),
+              ],
+              begin: AlignmentDirectional.topStart,
+              end: AlignmentDirectional.bottomEnd,
             ),
-            const SizedBox(
-              height: 20,
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            border: Border.all(
+              width: 1.5,
+              color: Colors.white.withOpacity(0.1),
             ),
-            const EducationList()
-          ],
-        ));
+          ),
+          child: child,
+        ),
+      ),
+    );
   }
 }
 
@@ -59,10 +194,7 @@ class _EducationListState extends State<EducationList> {
               ],
             ),
           ),
-          const SizedBox(
-            width: 500,
-            child: EducationListScroll(),
-          )
+          const Expanded(child: EducationListScroll())
         ],
       ),
     );

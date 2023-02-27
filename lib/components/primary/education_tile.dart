@@ -16,7 +16,7 @@ class EducationTile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: Theme.of(context).textTheme.headline5,),
+          Text(title, style: Theme.of(context).textTheme.headline6,),
           const SizedBox(height: 4,),
           Text(origin),
           const SizedBox(height: 4,),
